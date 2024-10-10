@@ -298,7 +298,7 @@ WHERE EmployeeID = 1
 SELECT * FROM EditableEmployeeView WHERE EmployeeID = 1
 
 --19 VIEW WITH CALCULATED COLUMNS
-----Create a view named EmployeeSalaryBonusView that displays each employee’s FirstName, LastName, Salary, and a calculated column Bonus (10% of the salary).
+----Create a view named EmployeeSalaryBonusView that displays each employeeÂ’s FirstName, LastName, Salary, and a calculated column Bonus (10% of the salary).
 CREATE VIEW EmployeeSalaryBonusView AS 
 SELECT FirstName, LastName, Salary, Salary * 0.10 AS Bonus FROM Employees
 
