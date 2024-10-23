@@ -1,0 +1,101 @@
+﻿
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header Styles */
+.header {
+    margin-bottom: 20px;
+}
+
+    .header h1 {
+        font-size: 2.5em;
+        color: #00796b;
+    }
+
+.tagline {
+    font-size: 1.2em;
+    color: #004d40;
+}
+
+/* Biography Styles */
+.biography {
+    margin-bottom: 20px;
+}
+
+    .biography h2 {
+        font-size: 2em;
+        color: #333;
+    }
+
+    .biography p {
+        font-size: 1.1em;
+        color: #555;
+        line-height: 1.6;
+    }
+
+/* Skills Styles */
+.skills {
+    margin-bottom: 20px;
+}
+
+    .skills h2 {
+        font-size: 2em;
+        color: #333;
+    }
+
+    .skills ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .skills li {
+        font-size: 1.2em;
+        color: #666;
+        padding: 8px;
+        background-color: #e0f2f1;
+        margin: 5px 0;
+        border-radius: 8px;
+    }
+
+/* Footer Styles */
+.footer {
+    margin-top: 20px;
+}
+
+    .footer h2 {
+        font-size: 2em;
+        color: #333;
+    }
+
+    .footer p {
+        font-size: 1.1em;
+        color: #555;
+    }
+
+    .footer a {
+        color: #00796b;
+        text-decoration: none;
+    }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
