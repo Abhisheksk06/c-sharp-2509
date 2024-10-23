@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <!-- Load static files -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+
+    <script>
+        const logout = async (e) => {
+            // Include the code for logout here.
+        };
+
+        let checkSession = () => {
+            let curr_user = sessionStorage.getItem("username");
+
+            if (curr_user && curr_user !== "") {
+                document.getElementById("loginlogout").innerHTML = 
+                '<span class="homepage_links">' + curr_user + '</span>' +
+                '<a class="homepage_links" onclick="logout()" href="/">Logout</a>';
+            } else {
+                document.getElementById("loginlogout").innerHTML = 
+                '<a class="homepage_links" href="/login">Login</a>' +
+                '<a class="homepage_links" href="/register">Register</a>';
+            }
+        };
+
+        // Function to show the dealership table and hide the card
+        function showDealerships() {
+            document.getElementById('dealershipTable').style.display = 'block';
+            document.getElementById('welcomeCard').style.display = 'none'; // Hide the card with the welcome message and button
+        }
+    </script>
+
+    <style>
+        /* Remove background color and set headings with bold text */
+        thead th {
+            font-weight: bold;
+            background-color: white;
+        }
+
+        /* Make table columns stretch fully to fit the window width */
+        table {
+            width: 100%;
+        }
+    </style>
+</head>
+<body onload="checkSession()">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+        <div class="container-fluid">
+            <h2 style="padding-right: 5%;">Dealerships</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" style="font-size: larger;" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-size: larger;" href="/about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <div class="loginlink" id="loginlogout"></div>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div style="display: flex; flex-direction: column;">
+        <!-- Card that will be hidden once the button is clicked -->
+        <div id="welcomeCard" class="card" style="width: 50%; margin-top: 50px; align-self: center;">
+            <img src="{% static 'car_dealership.jpg' %}" class="card-img-top" alt="...">
+            <div class="banner">
+                <h5>Welcome to our Dealerships!</h5>
+                <!-- Button to display the dealerships -->
+                <button onclick="showDealerships()" class="btn" style="background-color: aqua; margin: 10px;">View Dealerships</button>
+            </div>
+        </div>
+
+        <!-- Dealership table (initially hidden) -->
+        <div id="dealershipTable" style="display:none; margin-top: 20px; align-self: center; width: 70%;">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Address</th>
+                        <th>Zip</th>
+                        <th>Short Name</th>
+                        <th>Full Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dealership data -->
+                    <tr>
+                        <td>1</td>
+                        <td>El Paso</td>
+                        <td>Texas</td>
+                        <td>3 Nova Court</td>
+                        <td>88563</td>
+                        <td>Holdlamis</td>
+                        <td>Holdlamis Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Minneapolis</td>
+                        <td>Minnesota</td>
+                        <td>6337 Butternut Crossing</td>
+                        <td>55402</td>
+                        <td>Temp</td>
+                        <td>Temp Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Birmingham</td>
+                        <td>Alabama</td>
+                        <td>9477 Twin Pines Center</td>
+                        <td>35285</td>
+                        <td>Sub-Ex</td>
+                        <td>Sub-Ex Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Dallas</td>
+                        <td>Texas</td>
+                        <td>85800 Hazelcrest Circle</td>
+                        <td>75241</td>
+                        <td>Solarbreeze</td>
+                        <td>Solarbreeze Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Baltimore</td>
+                        <td>Maryland</td>
+                        <td>93 Golf Course Pass</td>
+                        <td>21203</td>
+                        <td>Regrant</td>
+                        <td>Regrant Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Wilkes Barre</td>
+                        <td>Pennsylvania</td>
+                        <td>2 Burrows Hill</td>
+                        <td>18763</td>
+                        <td>Stronghold</td>
+                        <td>Stronghold Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Pueblo</td>
+                        <td>Colorado</td>
+                        <td>9 Cambridge Park</td>
+                        <td>81010</td>
+                        <td>Job</td>
+                        <td>Job Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Topeka</td>
+                        <td>Kansas</td>
+                        <td>288 Larry Place</td>
+                        <td>66642</td>
+                        <td>Bytecard</td>
+                        <td>Bytecard Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Dallas</td>
+                        <td>Texas</td>
+                        <td>253 Hanson Junction</td>
+                        <td>75216</td>
+                        <td>Job</td>
+                        <td>Job Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Washington</td>
+                        <td>District of Columbia</td>
+                        <td>108 Memorial Pass</td>
+                        <td>20005</td>
+                        <td>Alphazap</td>
+                        <td>Alphazap Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Carol Stream</td>
+                        <td>Illinois</td>
+                        <td>8108 Dryden Court</td>
+                        <td>60351</td>
+                        <td>Rank</td>
+                        <td>Rank Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Silver Spring</td>
+                        <td>Maryland</td>
+                        <td>168 Pawling Lane</td>
+                        <td>20918</td>
+                        <td>Tin</td>
+                        <td>Tin Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Baltimore</td>
+                        <td>Maryland</td>
+                        <td>452 Fair Oaks Drive</td>
+                        <td>21275</td>
+                        <td>Y-Solowarm</td>
+                        <td>Y-Solowarm Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>San Francisco</td>
+                        <td>California</td>
+                        <td>2109 Scott Parkway</td>
+                        <td>94147</td>
+                        <td>It</td>
+                        <td>It Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>San Antonio</td>
+                        <td>Texas</td>
+                        <td>5057 Pankratz Hill</td>
+                        <td>78225</td>
+                        <td>Tempsoft</td>
+                        <td>Tempsoft Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>El Paso</td>
+                        <td>Texas</td>
+                        <td>0 Rieder Trail</td>
+                        <td>79994</td>
+                        <td>Treeflex</td>
+                        <td>Treeflex Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>San Jose</td>
+                        <td>California</td>
+                        <td>7670 American Ash Drive</td>
+                        <td>95138</td>
+                        <td>Home Ing</td>
+                        <td>Home Ing Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Whittier</td>
+                        <td>California</td>
+                        <td>4 Pearson Avenue</td>
+                        <td>90605</td>
+                        <td>Bitchip</td>
+                        <td>Bitchip Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Hialeah</td>
+                        <td>Florida</td>
+                        <td>93 Monument Circle</td>
+                        <td>33013</td>
+                        <td>Otcom</td>
+                        <td>Otcom Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Detroit</td>
+                        <td>Michigan</td>
+                        <td>4580 Waubesa Lane</td>
+                        <td>48224</td>
+                        <td>Subin</td>
+                        <td>Subin Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>San Francisco</td>
+                        <td>California</td>
+                        <td>046 Mockingbird Junction</td>
+                        <td>94154</td>
+                        <td>Andalax</td>
+                        <td>Andalax Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Fort Lauderdale</td>
+                        <td>Florida</td>
+                        <td>45737 Butternut Lane</td>
+                        <td>33330</td>
+                        <td>Y-Solowarm</td>
+                        <td>Y-Solowarm Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>Des Moines</td>
+                        <td>Iowa</td>
+                        <td>21425 Bartelt Pass</td>
+                        <td>50936</td>
+                        <td>Bitchip</td>
+                        <td>Bitchip Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>Utica</td>
+                        <td>New York</td>
+                        <td>408 Delaware Circle</td>
+                        <td>13505</td>
+                        <td>Aerified</td>
+                        <td>Aerified Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>Washington</td>
+                        <td>District of Columbia</td>
+                        <td>6505 Melrose Junction</td>
+                        <td>20580</td>
+                        <td>Opela</td>
+                        <td>Opela Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>Pittsburgh</td>
+                        <td>Pennsylvania</td>
+                        <td>306 Jenna Parkway</td>
+                        <td>15279</td>
+                        <td>Flowdesk</td>
+                        <td>Flowdesk Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>San Antonio</td>
+                        <td>Texas</td>
+                        <td>95321 Superior Hill</td>
+                        <td>78245</td>
+                        <td>Namfix</td>
+                        <td>Namfix Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>Hialeah</td>
+                        <td>Florida</td>
+                        <td>5458 Maple Way</td>
+                        <td>33018</td>
+                        <td>Fixflex</td>
+                        <td>Fixflex Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>San Francisco</td>
+                        <td>California</td>
+                        <td>9 Harper Circle</td>
+                        <td>94110</td>
+                        <td>Fix San</td>
+                        <td>Fix San Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>Houston</td>
+                        <td>Texas</td>
+                        <td>5423 Spaight Road</td>
+                        <td>77218</td>
+                        <td>Opela</td>
+                        <td>Opela Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>New York City</td>
+                        <td>New York</td>
+                        <td>5 Northfield Pass</td>
+                        <td>10131</td>
+                        <td>Fintone</td>
+                        <td>Fintone Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td>Wilkes Barre</td>
+                        <td>Pennsylvania</td>
+                        <td>3 Carey Junction</td>
+                        <td>18768</td>
+                        <td>Subin</td>
+                        <td>Subin Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td>Des Moines</td>
+                        <td>Iowa</td>
+                        <td>627 Cottonwood Circle</td>
+                        <td>50335</td>
+                        <td>Tres-Zap</td>
+                        <td>Tres-Zap Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>Silver Spring</td>
+                        <td>Maryland</td>
+                        <td>8 Green Hill</td>
+                        <td>20904</td>
+                        <td>Gembucket</td>
+                        <td>Gembucket Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td>Seattle</td>
+                        <td>Washington</td>
+                        <td>9 Beilfuss Trail</td>
+                        <td>98158</td>
+                        <td>Treeflex</td>
+                        <td>Treeflex Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>Vienna</td>
+                        <td>Virginia</td>
+                        <td>311 Paget Alley</td>
+                        <td>22184</td>
+                        <td>Latlux</td>
+                        <td>Latlux Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        <td>Detroit</td>
+                        <td>Michigan</td>
+                        <td>152 Moland Lane</td>
+                        <td>48224</td>
+                        <td>Ventosanzap</td>
+                        <td>Ventosanzap Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>Dallas</td>
+                        <td>Texas</td>
+                        <td>821 New Castle Trail</td>
+                        <td>75226</td>
+                        <td>Zamit</td>
+                        <td>Zamit Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>39</td>
+                        <td>Fresno</td>
+                        <td>California</td>
+                        <td>990 Raven Road</td>
+                        <td>93740</td>
+                        <td>Stronghold</td>
+                        <td>Stronghold Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>Merrifield</td>
+                        <td>Virginia</td>
+                        <td>89375 Main Trail</td>
+                        <td>22119</td>
+                        <td>Greenlam</td>
+                        <td>Greenlam Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        <td>Baltimore</td>
+                        <td>Maryland</td>
+                        <td>9 Sherman Hill</td>
+                        <td>21275</td>
+                        <td>39.2847</td>
+                        <td>-76.6205</td>
+                        <td>Tres-Zap</td>
+                        <td>Tres-Zap Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>42</td>
+                        <td>Jersey City</td>
+                        <td>New Jersey</td>
+                        <td>62 Manley Point</td>
+                        <td>07310</td>
+                        <td>40.7324</td>
+                        <td>-74.0431</td>
+                        <td>Konklab</td>
+                        <td>Konklab Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>43</td>
+                        <td>Atlanta</td>
+                        <td>Georgia</td>
+                        <td>91 Declaration Avenue</td>
+                        <td>31119</td>
+                        <td>33.8913</td>
+                        <td>-84.0746</td>
+                        <td>Opela</td>
+                        <td>Opela Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>44</td>
+                        <td>Roanoke</td>
+                        <td>Virginia</td>
+                        <td>0 Northview Point</td>
+                        <td>24014</td>
+                        <td>37.2327</td>
+                        <td>-79.9463</td>
+                        <td>Veribet</td>
+                        <td>Veribet Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>45</td>
+                        <td>Norfolk</td>
+                        <td>Virginia</td>
+                        <td>283 Mockingbird Plaza</td>
+                        <td>23509</td>
+                        <td>36.8787</td>
+                        <td>-76.2604</td>
+                        <td>Konklux</td>
+                        <td>Konklux Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        <td>New Orleans</td>
+                        <td>Louisiana</td>
+                        <td>527 Hayes Junction</td>
+                        <td>70165</td>
+                        <td>30.033</td>
+                        <td>-89.8826</td>
+                        <td>Regrant</td>
+                        <td>Regrant Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>47</td>
+                        <td>Stamford</td>
+                        <td>Connecticut</td>
+                        <td>840 Pepper Wood Crossing</td>
+                        <td>06905</td>
+                        <td>41.0888</td>
+                        <td>-73.5435</td>
+                        <td>Prodder</td>
+                        <td>Prodder Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>48</td>
+                        <td>Tucson</td>
+                        <td>Arizona</td>
+                        <td>48610 Morning Street</td>
+                        <td>85710</td>
+                        <td>32.2138</td>
+                        <td>-110.824</td>
+                        <td>It</td>
+                        <td>It Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>49</td>
+                        <td>Athens</td>
+                        <td>Georgia</td>
+                        <td>222 Grasskamp Plaza</td>
+                        <td>30605</td>
+                        <td>33.9321</td>
+                        <td>-83.3525</td>
+                        <td>Veribet</td>
+                        <td>Veribet Car Dealership</td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>Atlanta</td>
+                        <td>Georgia</td>
+                        <td>76 Clove Trail</td>
+                        <td>30316</td>
+                        <td>33.7217</td>
+                        <td>-84.3339</td>
+                        <td>Aerified</td>
+                        <td>Aerified Car Dealership</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

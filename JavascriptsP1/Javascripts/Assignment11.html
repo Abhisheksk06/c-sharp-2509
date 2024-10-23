@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .question {
+            margin: 25px 0;
+        }
+        .question p {
+            font-size: 20px;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+        }
+        button {
+            margin-top: 25px;
+            padding: 15px;
+            width: 100%;
+            font-size: 18px;
+        }
+        #result {
+            margin-top: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Simple Quiz</h2>
+        
+        <!---Question 1-->
+        <div class="question">
+            <p>1. Where is Taj Mahal Located?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="Jaipur">Jaipur</label>
+                <label><input type="radio" name="q1" value="Agra">Agra</label>
+                <label><input type="radio" name="q1" value="Mumbai">Mumbai</label>
+            </div>
+        </div>
+
+        <!--Question 2-->
+        <div class="question">
+            <p>2. Which IPL team does M S Dhoni belong to?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="Chennai Super Kings">Chennai Super Kings</label>
+                <label><input type="radio" name="q2" value="Mumbai Indians">Mumbai Indians</label>
+                <label><input type="radio" name="q2" value="Royal Challengers Bangalore">Royal Challengers Bangalore</label>
+            </div>
+        </div>
+
+        <!--Question 3-->
+        <div class="question">
+            <p>3. Which district in Kerala is known as 'Venice of East'?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="Ernakulam">Ernakulam</label>
+                <label><input type="radio" name="q3" value="Thrissur">Thrissur</label>
+                <label><input type="radio" name="q3" value="Alappuzha">Alappuzha</label>
+            </div>
+        </div>
+        
+        <!--Button to submit the quiz-->
+        <button onclick="submitquiz()">Submit Quiz</button>
+
+        <!---Result display-->
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function submitquiz() {
+            // Correct Answers
+            let correctanswers = { q1: "Agra", q2: "Chennai Super Kings", q3: "Alappuzha" };
+            let score = 0;
+            let totalquestions = 3;
+
+            // Get user answers
+            let useranswers = {
+                q1: document.querySelector('input[name="q1"]:checked')?.value,
+                q2: document.querySelector('input[name="q2"]:checked')?.value,
+                q3: document.querySelector('input[name="q3"]:checked')?.value,
+            };
+
+            // Display result
+            let result = document.getElementById('result');
+            result.innerHTML = "";
+
+            // Check answers and calculate scores
+            for (let question in correctanswers) {
+                let useranswer = useranswers[question];
+                let correctanswer = correctanswers[question];
+
+                if (useranswer) {
+                    if (useranswer == correctanswer) {
+                        score++;
+                        result.innerHTML += "<p class='correct'>Question " + question[1] + ": Correct!</p>";
+                    } else {
+                        result.innerHTML += "<p class='incorrect'>Question " + question[1] + ": Wrong! Correct answer is " + correctanswer + ".</p>";
+                    }
+                } else {
+                    result.innerHTML += "<p class='incorrect'>Question " + question[1] + ": No answer selected. Correct answer is " + correctanswer + ".</p>";
+                }
+            }
+
+            // Display Final Score
+            result.innerHTML += "<p>Your score: " + score + "/" + totalquestions + "</p>";
+        }
+    </script>
+</body>
+</html>
