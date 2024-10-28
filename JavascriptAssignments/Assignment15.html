@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%; /* Allow full width */
+            max-width: 600px; /* Set a max width for the carousel */
+            height: 400px; /* Set a fixed height for the carousel */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            background-color: #fff; /* Add a background color */
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            display: none; /* Hide all images by default */
+            object-fit: contain; /* Maintain aspect ratio and fit within the container */
+        }
+
+        .active {
+            display: block; /* Show the active image */
+        }
+
+        .button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%); /* Center the button vertically by adjusting its position */
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .prev {
+            background-color: rgb(152, 152, 226);
+            left: 10px;
+            font-weight: bold;
+        }
+
+        .next {
+            background-color: rgb(46, 240, 46);
+            right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carousel-container">
+        <img class="carousel-image active" src="images/Book1.jpeg" alt="Image 1">
+        <img class="carousel-image" src="images/Book2.jpeg" alt="Image 2">
+        <img class="carousel-image" src="images/Book3.jpeg" alt="Image 3">
+        <img class="carousel-image" src="images/Book4.jpeg" alt="Image 4">
+        <img class="carousel-image" src="images/Book5.jpeg" alt="Image 5">
+        <button class="button prev" id="prevButton">Previous</button>
+        <button class="button next" id="nextButton">Next</button>
+    </div>
+
+    <script>
+        let currentIndex = 0; // Track the current image index
+        const images = document.querySelectorAll('.carousel-image');
+        const totalImages = images.length;
+
+        // function to update the carousel
+        function updateCarousel() {
+            images.forEach((img, index) => {
+                img.classList.remove('active'); // to remove active class from all images
+                if (index === currentIndex) {
+                    img.classList.add('active'); // to add active class to the current image
+                }
+            });
+        }
+
+        // Event listener for the next button
+        document.getElementById('nextButton').addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % totalImages; // Move to the next image
+            updateCarousel();
+        });
+
+        // Event listener for the previous button
+        document.getElementById('prevButton').addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Move to the previous image
+            updateCarousel();
+        });
+    </script>
+
+</body>
+</html>

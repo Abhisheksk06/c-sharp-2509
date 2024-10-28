@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Color Changer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #colorPicker {
+            width: 5%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #changeColorButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Background Color Changer</h1>
+
+    <label for="colorPicker">Choose a background color:</label>
+    <input type="color" id="colorPicker">
+    <br>
+    <button id="changeColorButton" onClick="changeBackgroundColor()">Change Background Color</button>
+
+    <script>
+        function changeBackgroundColor() {
+            // Get the selected color from the input field
+            let selectedColor = document.getElementById('colorPicker').value;
+            
+            // Change the background color of the body
+            document.body.style.backgroundColor = selectedColor;
+        }
+    </script>
+</body>
+</html>

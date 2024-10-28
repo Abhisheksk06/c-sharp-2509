@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .calculator{
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 200px;
+        }
+        input,select,button{
+            margin: 10px;
+            padding: 10px;
+            font-size: 18px;
+            width: 91%;
+        }
+        #total{
+            margin-top: 20px;
+            font-size: 22px;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Tip Calculator</h2>
+
+        <input type="number" id="billamount" placeholder="Enter the bill amount" required>
+
+        <select id="tippercentage">
+            <option value="0.05">5% Tip</option>
+            <option value="0.1">10% Tip</option>
+            <option value="0.15">15% Tip</option>
+        </select>
+
+        <button onclick="calculatetip()">Calculate Total</button>
+
+        <div id="total">Total Amount: $0.00</div>
+    </div>
+
+    <script>
+        function calculatetip(){
+
+            let billamount = parseFloat(document.getElementById("billamount").value);
+
+            let tippercentage = parseFloat(document.getElementById("tippercentage").value);
+
+            if(isNaN(billamount) || billamount <= 0) {
+                alert("Please enter a valid bill amount");
+                return;
+            }
+
+            let tipamount = billamount * tippercentage;
+            let totalamount = billamount + tipamount;
+
+            document.getElementById("total").textContent = "Total Amount: $" + totalamount.toFixed(2);
+        }
+    </script>
+    
+</body>
+</html>

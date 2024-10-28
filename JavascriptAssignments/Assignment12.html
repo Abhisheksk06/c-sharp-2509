@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        /* to center the stopwatch */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        /* heading style */
+        h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /*  the stopwatch container */
+        .stopwatch {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* the time display */
+        .time {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        /* for buttons container */
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        /* styling for buttons */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Start button */
+        #start {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Stop button */
+        #stop {
+            background-color: #f44336;
+            color: white;
+        }
+
+        /* Reset button */
+        #reset {
+            background-color: #555;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>Stop Watch</h2>
+    <div class="stopwatch">
+        <!-- Timer display starts at 00:00 -->
+        <div class="time" id="display">00:00</div>
+
+        <!-- Buttons to control the stopwatch -->
+        <div class="buttons">
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        // variables to track time
+        let minutes = 0;
+        let seconds = 0;
+
+        // variable to store the interval ID (i.e for starting/stopping timer)
+        let interval = null;
+
+        // flag to check if the timer is running or paused
+        let isRunning = false;
+
+        // function to update the timer display
+        function updateDisplay() {
+            const display = document.getElementById("display");
+
+            // format the time to ensure two digits (e.g., 04:08)
+            const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+            const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+
+            // update the display text with the formatted time
+            display.textContent = `${formattedMinutes}:${formattedSeconds}`;
+        }
+
+        // function to start the timer
+        function startTimer() {
+            // if the timer is not already running, start it
+            if (!isRunning) {
+                isRunning = true;
+
+                // use setInterval to update the time every second (1000 ms)
+                interval = setInterval(() => {
+                    seconds++;
+
+                    // if seconds reach 60, increment minutes and reset seconds
+                    if (seconds === 60) {
+                        seconds = 0;
+                        minutes++;
+                    }
+
+                    // update the timer display with the new time
+                    updateDisplay();
+                }, 1000); // update every 1000 milliseconds (1 second)
+            }
+        }
+
+        // Function to stop the timer
+        function stopTimer() {
+            // clear the interval to stop the timer
+            clearInterval(interval);
+            isRunning = false; // Mark the timer as stopped
+        }
+
+        // Function to reset the timer
+        function resetTimer() {
+            // Stop the timer first
+            stopTimer();
+
+            // Reset minutes and seconds to zero
+            minutes = 0;
+            seconds = 0;
+
+            // Update the display to show 00:00
+            updateDisplay();
+        }
+
+        // Event listeners for button clicks
+        document.getElementById("start").addEventListener("click", startTimer); // Start button
+        document.getElementById("stop").addEventListener("click", stopTimer);   // Stop button
+        document.getElementById("reset").addEventListener("click", resetTimer); // Reset button
+
+        // Initialize the display to 00:00 when the page loads
+        updateDisplay();
+    </script>
+    
+</body>
+</html>

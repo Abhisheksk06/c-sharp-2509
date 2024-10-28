@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .quote-container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+
+        #quoteDisplay {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quote-container">
+        <div id="quoteDisplay">Click the button for a random quote!</div>
+        <button id="newQuoteButton">New Quote</button>
+    </div>
+
+    <script>
+        const quotes = [
+            "The best way to predict the future is to invent it.",
+            "Success is not the key to happiness. Happiness is the key to success.",
+            "In the middle of difficulty lies opportunity.",
+            "The only limit to our realization of tomorrow is our doubts of today.",
+            "Your time is limited, so don’t waste it living someone else’s life.",
+            "The only way to do great work is to love what you do.",
+            "Life is 10% what happens to us and 90% how we react to it.",
+            "It does not matter how slowly you go as long as you do not stop.",
+            "Believe you can and you're halfway there."
+        ];
+
+        const quoteDisplay = document.getElementById('quoteDisplay');
+        const newQuoteButton = document.getElementById('newQuoteButton');
+
+        // Function to generate a random quote
+        function generateRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            quoteDisplay.textContent = quotes[randomIndex];
+        }
+
+        // Add event listener to button
+        newQuoteButton.addEventListener('click', generateRandomQuote);
+    </script>
+
+</body>
+</html>
