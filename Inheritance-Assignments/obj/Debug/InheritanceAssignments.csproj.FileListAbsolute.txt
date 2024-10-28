@@ -1,0 +1,7 @@
+C:\ObjectOrientedLab\InheritanceAssignments\InheritanceAssignments\bin\Debug\InheritanceAssignments.exe.config
+C:\ObjectOrientedLab\InheritanceAssignments\InheritanceAssignments\bin\Debug\InheritanceAssignments.exe
+C:\ObjectOrientedLab\InheritanceAssignments\InheritanceAssignments\bin\Debug\InheritanceAssignments.pdb
+C:\ObjectOrientedLab\InheritanceAssignments\InheritanceAssignments\obj\Debug\InheritanceAssignments.csproj.AssemblyReference.cache
+C:\ObjectOrientedLab\InheritanceAssignments\InheritanceAssignments\obj\Debug\InheritanceAssignments.csproj.CoreCompileInputs.cache
+C:\ObjectOrientedLab\InheritanceAssignments\InheritanceAssignments\obj\Debug\InheritanceAssignments.exe
+C:\ObjectOrientedLab\InheritanceAssignments\InheritanceAssignments\obj\Debug\InheritanceAssignments.pdb
