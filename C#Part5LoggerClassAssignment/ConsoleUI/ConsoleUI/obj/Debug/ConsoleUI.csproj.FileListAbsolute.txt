@@ -1,0 +1,11 @@
+C:\ObjectOriented\ConsoleUI\ConsoleUI\bin\Debug\ConsoleUI.exe.config
+C:\ObjectOriented\ConsoleUI\ConsoleUI\bin\Debug\ConsoleUI.exe
+C:\ObjectOriented\ConsoleUI\ConsoleUI\bin\Debug\ConsoleUI.pdb
+C:\ObjectOriented\ConsoleUI\ConsoleUI\obj\Debug\ConsoleUI.csproj.AssemblyReference.cache
+C:\ObjectOriented\ConsoleUI\ConsoleUI\obj\Debug\ConsoleUI.csproj.CoreCompileInputs.cache
+C:\ObjectOriented\ConsoleUI\ConsoleUI\obj\Debug\ConsoleUI.exe
+C:\ObjectOriented\ConsoleUI\ConsoleUI\obj\Debug\ConsoleUI.pdb
+C:\ObjectOriented\ConsoleUI\ConsoleUI\bin\Debug\log4net.dll
+C:\ObjectOriented\ConsoleUI\ConsoleUI\bin\Debug\log4net.pdb
+C:\ObjectOriented\ConsoleUI\ConsoleUI\bin\Debug\log4net.xml
+C:\ObjectOriented\ConsoleUI\ConsoleUI\obj\Debug\ConsoleUI.csproj.Up2Date

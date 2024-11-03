@@ -1,0 +1,8 @@
+2024-10-31 19:01:11,691 [1] ERROR ConsoleUI.Logger -
+Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at ConsoleUI.Program.Divide(Int32 a, Int32 b) in C:\ObjectOriented\ConsoleUI\ConsoleUI\Program.cs:line 18
+2024-11-01 17:23:33,989 [1] ERROR ConsoleUI.Logger -
+Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at ConsoleUI.Program.Divide(Int32 a, Int32 b) in C:\ObjectOriented\ConsoleUI\ConsoleUI\Program.cs:line 18
