@@ -1,0 +1,7 @@
+C:\ObjectOrientedLab\C#Part5Assignments\C#Part5Assignments\bin\Debug\C#Part5Assignments.exe.config
+C:\ObjectOrientedLab\C#Part5Assignments\C#Part5Assignments\bin\Debug\C#Part5Assignments.exe
+C:\ObjectOrientedLab\C#Part5Assignments\C#Part5Assignments\bin\Debug\C#Part5Assignments.pdb
+C:\ObjectOrientedLab\C#Part5Assignments\C#Part5Assignments\obj\Debug\C#Part5Assignments.csproj.AssemblyReference.cache
+C:\ObjectOrientedLab\C#Part5Assignments\C#Part5Assignments\obj\Debug\C#Part5Assignments.csproj.CoreCompileInputs.cache
+C:\ObjectOrientedLab\C#Part5Assignments\C#Part5Assignments\obj\Debug\C#Part5Assignments.exe
+C:\ObjectOrientedLab\C#Part5Assignments\C#Part5Assignments\obj\Debug\C#Part5Assignments.pdb
