@@ -1,7 +1,0 @@
-C:\ObjectOrientedLab\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
-C:\ObjectOrientedLab\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
-C:\ObjectOrientedLab\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
-C:\ObjectOrientedLab\ConsoleApp1\ConsoleApp1\obj\Debug\Assignment1.csproj.AssemblyReference.cache
-C:\ObjectOrientedLab\ConsoleApp1\ConsoleApp1\obj\Debug\Assignment1.csproj.CoreCompileInputs.cache
-C:\ObjectOrientedLab\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
-C:\ObjectOrientedLab\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
